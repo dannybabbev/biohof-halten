@@ -7,6 +7,7 @@ const navItems = [
   { label: "Start", href: "/" },
   { label: "Fleisch ab Hof", href: "/fleisch-ab-hof" },
   { label: "Unsere Tiere", href: "/unsere-tiere" },
+  { label: "Impressionen", href: "/impressionen" },
   { label: "Über Uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/#kontakt" },
 ];
