@@ -13,7 +13,7 @@ export const Footer = () => {
           <nav className="flex flex-wrap justify-center gap-6 text-sm">
             <a href="#start" className="text-cream/80 hover:text-cream transition-colors">Start</a>
             <a href="#fleisch" className="text-cream/80 hover:text-cream transition-colors">Fleisch ab Hof</a>
-            <a href="#tiere" className="text-cream/80 hover:text-cream transition-colors">Unsere Tiere</a>
+            <a href="/unsere-tiere" className="text-cream/80 hover:text-cream transition-colors">Unsere Tiere</a>
             <a href="#ueber" className="text-cream/80 hover:text-cream transition-colors">Über Uns</a>
             <a href="#kontakt" className="text-cream/80 hover:text-cream transition-colors">Kontakt</a>
           </nav>

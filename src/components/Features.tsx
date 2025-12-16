@@ -70,7 +70,7 @@ export const Features = () => {
       description:
         "Seit 2003 werden all unsere Tiere rein biologisch gehalten und ernährt. Seit 2025 leben sie als Mutterkuh-Kühe. Dazu Schafe, Hühner, Katzen, Esel und ein Hund.",
       image: tiereImage,
-      href: "#tiere",
+      href: "/unsere-tiere",
     },
     {
       title: "Über Uns",

@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const navItems = [
   { label: "Start", href: "/" },
   { label: "Fleisch ab Hof", href: "/fleisch-ab-hof" },
-  { label: "Unsere Tiere", href: "/#tiere" },
+  { label: "Unsere Tiere", href: "/unsere-tiere" },
   { label: "Über Uns", href: "/#ueber" },
   { label: "Kontakt", href: "/#kontakt" },
 ];
