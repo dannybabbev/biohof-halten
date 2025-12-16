@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.avif";
 
 const navItems = [
   { label: "Start", href: "/" },
@@ -32,15 +33,11 @@ export const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
-            isScrolled ? "bg-primary border-primary" : "bg-cream/20 border-cream/60"
-          }`}>
-            <span className={`font-heading font-bold text-lg transition-colors duration-300 ${
-              isScrolled ? "text-primary-foreground" : "text-cream"
-            }`}>
-              BH
-            </span>
-          </div>
+          <img
+            src={logo}
+            alt="Biohof Halten"
+            className="h-12 w-12 object-contain transition-opacity duration-300"
+          />
           <span className={`font-heading text-xl font-semibold hidden sm:block transition-colors duration-300 ${
             isScrolled ? "text-foreground" : "text-cream"
           }`}>

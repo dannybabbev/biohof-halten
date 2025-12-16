@@ -1,12 +1,16 @@
+import logo from "@/assets/logo.avif";
+
 export const Footer = () => {
   return (
     <footer className="py-12 bg-bark text-cream">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-cream/20 border border-cream/40 flex items-center justify-center">
-              <span className="font-heading font-bold text-cream">BH</span>
-            </div>
+            <img
+              src={logo}
+              alt="Biohof Halten"
+              className="h-10 w-10 object-contain"
+            />
             <span className="font-heading text-lg font-semibold">Biohof Halten</span>
           </div>
 
