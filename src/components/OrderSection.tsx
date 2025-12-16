@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FileText, Mail } from "lucide-react";
+import bestellformular from "@/assets/docs/Bestellformular.pdf";
 
 export const OrderSection = () => {
   return (
@@ -18,9 +19,20 @@ export const OrderSection = () => {
               <FileText className="w-5 h-5" />
               Online bestellen
             </Button>
-            <Button variant="heroOutline" size="lg" className="gap-2 border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/10">
-              <Mail className="w-5 h-5" />
-              PDF-Formular
+            <Button
+              variant="heroOutline"
+              size="lg"
+              className="gap-2 border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/10"
+              asChild
+            >
+              <a
+                href={bestellformular}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail className="w-5 h-5" />
+                PDF-Formular
+              </a>
             </Button>
           </div>
 

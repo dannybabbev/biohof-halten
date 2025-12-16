@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Truck, Package, FileText, Mail } from "lucide-react";
 import steakImage from "@/assets/steak.webp";
 import heroImage from "@/assets/hero.avif";
+import bestellformular from "@/assets/docs/Bestellformular.pdf";
 
 const FleischAbHof = () => {
   return (
@@ -273,7 +274,7 @@ const FleischAbHof = () => {
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a
-                  href="https://storage.e.jimdo.com/file/3c973393-d043-4ccc-bab7-9e2a95e39204/Bestellformular.pdf"
+                  href={bestellformular}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
