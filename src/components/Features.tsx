@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import meatImage from "@/assets/meat-products.jpg";
-import cowsImage from "@/assets/cows-meadow.jpg";
-import familyImage from "@/assets/family-farm.jpg";
+import steakImage from "@/assets/steak.webp";
+import tiereImage from "@/assets/tiere.webp";
+import unsImage from "@/assets/uns.avif";
 
 interface FeatureCardProps {
   title: string;
@@ -44,21 +44,21 @@ export const Features = () => {
       title: "Fleisch ab Hof",
       description:
         "Frisch ab Hof verkaufen wir verschiedene Mischpakete mit feinstem Bio-Kalb- oder Rindfleisch abgepackt und vakuumiert. Auf Vorbestellung auch halbe oder ganze Tiere.",
-      image: meatImage,
+      image: steakImage,
       href: "#fleisch",
     },
     {
       title: "Unsere Tiere",
       description:
         "Seit 2003 werden all unsere Tiere rein biologisch gehalten und ernährt. Seit 2025 leben sie als Mutterkuh-Kühe. Dazu Schafe, Hühner, Katzen, Esel und ein Hund.",
-      image: cowsImage,
+      image: tiereImage,
       href: "#tiere",
     },
     {
       title: "Über Uns",
       description:
         "Unser Biohof wird seit 2024 vom Jungbauern Lukas Grab geführt und zusammen mit seinem Vater Martin bewirtschaftet. Tradition trifft auf moderne Bio-Landwirtschaft.",
-      image: familyImage,
+      image: unsImage,
       href: "#ueber",
     },
   ];
