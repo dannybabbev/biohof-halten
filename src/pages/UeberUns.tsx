@@ -2,6 +2,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import grabBertozzi from "@/assets/uber-uns/grab-bertozzi.webp";
 import grabHubli from "@/assets/uber-uns/grab-hubli.avif";
+import bioKnospe from "@/assets/docs/Bio-Knospe_AnerkGrab.pdf";
+import zuchtfamilie from "@/assets/docs/Zuchtfamilie_Grab.pdf";
+import heroImage from "@/assets/hero.avif";
 
 const families = [
   {
@@ -27,11 +30,11 @@ const families = [
 const documents = [
   {
     label: "Bio-Knospe",
-    href: "https://storage.e.jimdo.com/file/b3fcab3f-af72-40b2-b0c0-f52188b575c3/Bio-Knospe_AnerkGrab.pdf",
+    href: bioKnospe,
   },
   {
     label: "Zuchtfamilien-Urkunde",
-    href: "https://storage.e.jimdo.com/file/c8590b87-bcc6-4622-80c8-fb275cbff6ce/Zuchtfamilie_Grab.pdf",
+    href: zuchtfamilie,
   },
 ];
 
@@ -41,13 +44,20 @@ const UeberUns = () => {
       <Header />
 
       <main>
-        <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-b from-forest/15 via-cream/20 to-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroImage})` }}
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-bark/70 via-bark/55 to-background" />
+
+          <div className="relative container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center space-y-6 text-cream">
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">
                 Über Uns
               </h1>
-              <p className="font-body text-lg text-muted-foreground leading-relaxed">
+              <p className="font-body text-lg text-cream/90 leading-relaxed">
                 Lernen Sie die Familien kennen, die mit Herzblut den Biohof Halten prägen.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -57,7 +67,7 @@ const UeberUns = () => {
                     href={doc.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary font-semibold hover:bg-primary/10 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cream/70 text-cream font-semibold hover:bg-cream/10 transition-colors"
                   >
                     {doc.label}
                   </a>
