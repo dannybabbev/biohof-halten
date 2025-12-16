@@ -28,7 +28,7 @@ export const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
           <Button variant="hero" size="xl" asChild>
-            <a href="#fleisch">Fleisch ab Hof</a>
+            <a href="/fleisch-ab-hof">Fleisch ab Hof</a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
             <a href="/kontakt">Kontakt</a>
