@@ -14,7 +14,7 @@ export const Footer = () => {
             <a href="#start" className="text-cream/80 hover:text-cream transition-colors">Start</a>
             <a href="#fleisch" className="text-cream/80 hover:text-cream transition-colors">Fleisch ab Hof</a>
             <a href="/unsere-tiere" className="text-cream/80 hover:text-cream transition-colors">Unsere Tiere</a>
-            <a href="#ueber" className="text-cream/80 hover:text-cream transition-colors">Über Uns</a>
+            <a href="/ueber-uns" className="text-cream/80 hover:text-cream transition-colors">Über Uns</a>
             <a href="#kontakt" className="text-cream/80 hover:text-cream transition-colors">Kontakt</a>
           </nav>
 

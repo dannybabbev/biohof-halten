@@ -77,7 +77,8 @@ export const Features = () => {
       description:
         "Unser Biohof wird seit 2024 vom Jungbauern Lukas Grab geführt und zusammen mit seinem Vater Martin bewirtschaftet. Tradition trifft auf moderne Bio-Landwirtschaft.",
       image: unsImage,
-      href: "#ueber",
+      href: "/ueber-uns",
+      isRoute: true,
     },
   ];
 
