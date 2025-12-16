@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Start", href: "#start" },
-  { label: "Fleisch ab Hof", href: "#fleisch" },
-  { label: "Unsere Tiere", href: "#tiere" },
-  { label: "Über Uns", href: "#ueber" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Start", href: "/" },
+  { label: "Fleisch ab Hof", href: "/fleisch-ab-hof" },
+  { label: "Unsere Tiere", href: "/#tiere" },
+  { label: "Über Uns", href: "/#ueber" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 export const Header = () => {
@@ -30,7 +31,7 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#start" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-colors duration-300 ${
             isScrolled ? "bg-primary border-primary" : "bg-cream/20 border-cream/60"
           }`}>
@@ -45,20 +46,32 @@ export const Header = () => {
           }`}>
             Biohof Halten
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className={`font-body font-medium transition-colors duration-300 hover:opacity-80 ${
-                isScrolled ? "text-foreground" : "text-cream"
-              }`}
-            >
-              {item.label}
-            </a>
+            item.href.startsWith("/#") ? (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`font-body font-medium transition-colors duration-300 hover:opacity-80 ${
+                  isScrolled ? "text-foreground" : "text-cream"
+                }`}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.href}
+                className={`font-body font-medium transition-colors duration-300 hover:opacity-80 ${
+                  isScrolled ? "text-foreground" : "text-cream"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -81,14 +94,25 @@ export const Header = () => {
         <nav className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border mt-2">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="font-body font-medium text-foreground py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.href.startsWith("/#") ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="font-body font-medium text-foreground py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="font-body font-medium text-foreground py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
         </nav>
