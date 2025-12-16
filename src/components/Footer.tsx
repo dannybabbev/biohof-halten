@@ -15,12 +15,12 @@ export const Footer = () => {
           </div>
 
           <nav className="flex flex-wrap justify-center gap-6 text-sm">
-            <a href="#start" className="text-cream/80 hover:text-cream transition-colors">Start</a>
-            <a href="#fleisch" className="text-cream/80 hover:text-cream transition-colors">Fleisch ab Hof</a>
+            <a href="/" className="text-cream/80 hover:text-cream transition-colors">Start</a>
+            <a href="/fleisch-ab-hof" className="text-cream/80 hover:text-cream transition-colors">Fleisch ab Hof</a>
             <a href="/unsere-tiere" className="text-cream/80 hover:text-cream transition-colors">Unsere Tiere</a>
             <a href="/impressionen" className="text-cream/80 hover:text-cream transition-colors">Impressionen</a>
             <a href="/ueber-uns" className="text-cream/80 hover:text-cream transition-colors">Über Uns</a>
-            <a href="#kontakt" className="text-cream/80 hover:text-cream transition-colors">Kontakt</a>
+            <a href="/kontakt" className="text-cream/80 hover:text-cream transition-colors">Kontakt</a>
           </nav>
 
           <p className="text-cream/60 text-sm">

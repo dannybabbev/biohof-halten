@@ -9,7 +9,7 @@ const navItems = [
   { label: "Unsere Tiere", href: "/unsere-tiere" },
   { label: "Impressionen", href: "/impressionen" },
   { label: "Über Uns", href: "/ueber-uns" },
-  { label: "Kontakt", href: "/#kontakt" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export const Header = () => {

@@ -31,7 +31,7 @@ export const Hero = () => {
             <a href="#fleisch">Fleisch ab Hof</a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="#kontakt">Kontakt</a>
+            <a href="/kontakt">Kontakt</a>
           </Button>
         </div>
       </div>

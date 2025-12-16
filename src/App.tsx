@@ -8,6 +8,7 @@ import FleischAbHof from "./pages/FleischAbHof";
 import UnsereTiere from "./pages/UnsereTiere";
 import UeberUns from "./pages/UeberUns";
 import Impressionen from "./pages/Impressionen";
+import Kontakt from "./pages/Kontakt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/unsere-tiere" element={<UnsereTiere />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
           <Route path="/impressionen" element={<Impressionen />} />
+          <Route path="/kontakt" element={<Kontakt />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
