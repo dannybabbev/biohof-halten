@@ -272,7 +272,7 @@ const FleischAbHof = () => {
                   Online-Bestellformular
                 </a>
               </Button>
-              <Button variant="heroOutline" size="lg" asChild>
+              <Button variant="hero" size="lg" className="bg-forest text-cream hover:bg-forest/90" asChild>
                 <a
                   href={bestellformular}
                   target="_blank"

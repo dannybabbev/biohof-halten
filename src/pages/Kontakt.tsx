@@ -138,6 +138,7 @@ const Kontakt = () => {
                 <Button
                   variant="hero"
                   size="lg"
+                  className="bg-forest text-cream hover:bg-forest/90"
                   asChild
                 >
                   <a

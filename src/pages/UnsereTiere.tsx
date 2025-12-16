@@ -222,10 +222,11 @@ const UnsereTiere = () => {
               <Button
                 variant="hero"
                 size="lg"
+                className="bg-forest text-cream hover:bg-forest/90"
                 asChild
               >
                 <a
-                  href="https://www.biohofhalten.ch/impressionen/"
+                  href="/impressionen/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -233,11 +234,12 @@ const UnsereTiere = () => {
                 </a>
               </Button>
               <Button
-                variant="heroOutline"
+                variant="hero"
                 size="lg"
+                className="bg-bark text-cream hover:bg-bark/90"
                 asChild
               >
-                <a href="/#kontakt">
+                <a href="/kontakt">
                   Kontakt aufnehmen
                 </a>
               </Button>
