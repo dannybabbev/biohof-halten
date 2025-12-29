@@ -60,19 +60,6 @@ const UeberUns = () => {
               <p className="font-body text-lg text-cream/90 leading-relaxed">
                 Lernen Sie die Familien kennen, die mit Herzblut den Biohof Halten prägen.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                {documents.map((doc) => (
-                  <a
-                    key={doc.href}
-                    href={doc.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cream/70 text-cream font-semibold hover:bg-cream/10 transition-colors"
-                  >
-                    {doc.label}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -108,19 +95,38 @@ const UeberUns = () => {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
 
-              <div className="bg-cream/50 border border-earth/30 rounded-2xl p-6 text-center space-y-4">
-                <h3 className="font-heading text-2xl text-foreground">
-                  Unsere Bio-Knospen-Anerkennung und die Zuchfamilien-Urkunde finden Sie hier
-                </h3>
-                <div className="flex flex-wrap gap-4 justify-center">
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto grid gap-6 lg:grid-cols-2">
+              <div className="bg-card border border-border rounded-2xl shadow-soft p-8 space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Hofnummer
+                </p>
+                <p className="font-heading text-5xl text-foreground">10562</p>
+                <p className="font-body text-muted-foreground">
+                  Unsere offizielle Betriebsnummer für alle Nachweise und Zertifizierungen.
+                </p>
+              </div>
+
+              <div className="bg-card border border-border rounded-2xl shadow-soft p-8 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-heading text-2xl text-foreground">Zertifikate & Nachweise</h3>
+                  <p className="font-body text-muted-foreground">
+                    Aktuelle Dokumente zum Download.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3">
                   {documents.map((doc) => (
                     <a
                       key={doc.label}
                       href={doc.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lifted transition-all"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lifted transition-all"
                     >
                       {doc.label}
                     </a>
