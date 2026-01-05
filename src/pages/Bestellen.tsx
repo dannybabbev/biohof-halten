@@ -18,9 +18,40 @@ import bestellformular from "@/assets/docs/Bestellformular.pdf";
 import { FileText, Mail } from "lucide-react";
 
 const Bestellen = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Vielen Dank für Ihre Bestellung! Wir werden uns in Kürze bei Ihnen melden.");
+    
+    // Use FormData to get values
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // --- CONFIGURATION START ---
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfO5eieRlc6HjeSsp7U1qlw548HwUSl3GYnMHLFgwpIate1Pg/formResponse";
+
+    // Create the search params object - Google expects this format
+    const mappedData = new URLSearchParams();
+    mappedData.append("entry.569909213", formData.get("contact") as string || "");
+    mappedData.append("entry.1266230171", formData.get("zeitraum") as string || "");
+    mappedData.append("entry.1470760738", formData.get("paket") as string || "");
+    mappedData.append("entry.410461177", formData.get("vakuum") as string || "");
+    mappedData.append("entry.559525787", formData.get("remark") as string || "");
+    // --- CONFIGURATION END ---
+
+    try {
+      // Use fetch with no-cors and no manual Content-Type header
+      // Passing URLSearchParams directly as 'body' makes fetch set the correct headers automatically
+      await fetch(GOOGLE_FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: mappedData,
+      });
+      
+      toast.success("Vielen Dank! Ihre Bestellung wurde erfolgreich übermittelt.");
+      form.reset();
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Fehler beim Senden. Bitte versuchen Sie es später erneut.");
+    }
   };
 
   return (
@@ -28,7 +59,7 @@ const Bestellen = () => {
       <Header />
 
       <main>
-        {/* Hero Section */}
+        {/* ... existing hero section ... */}
         <section className="relative pt-32 pb-16 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -53,7 +84,7 @@ const Bestellen = () => {
               <div className="bg-card rounded-2xl shadow-soft border border-border p-6 md:p-8 space-y-8">
                 <div className="space-y-4">
                   <p className="font-body text-muted-foreground">
-                    Die Bestellung wird über ein Microsoft-Forms-Formular abgewickelt. Mit der Übermittlung bestätigen Sie automatisch die Nutzungsbedingungen.
+                    Die Bestellung wird über ein Google-Formular abgewickelt. Mit der Übermittlung bestätigen Sie automatisch die Nutzungsbedingungen.
                   </p>
                   <p className="font-body text-muted-foreground">
                     Falls Sie dies nicht möchten, laden Sie bitte das{" "}
@@ -80,6 +111,7 @@ const Bestellen = () => {
                       <Label htmlFor="contact">Name und Nummer/Mail</Label>
                       <Input
                         id="contact"
+                        name="contact"
                         placeholder="Ihr Name und wie wir Sie erreichen können"
                         required
                       />
@@ -89,13 +121,13 @@ const Bestellen = () => {
                   {/* Zeitraum */}
                   <div className="space-y-4">
                     <h3 className="font-heading text-xl font-semibold">Zeitraum</h3>
-                    <RadioGroup defaultValue="fruehling" className="flex flex-col space-y-2">
+                    <RadioGroup name="zeitraum" defaultValue="Frühling (März/April)" className="flex flex-col space-y-2">
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="fruehling" id="fruehling" />
+                        <RadioGroupItem value="Frühling (März/April)" id="fruehling" />
                         <Label htmlFor="fruehling">Frühling (März/April)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="herbst" id="herbst" />
+                        <RadioGroupItem value="Herbst (Oktober/November)" id="herbst" />
                         <Label htmlFor="herbst">Herbst (Oktober/November)</Label>
                       </div>
                     </RadioGroup>
@@ -104,17 +136,17 @@ const Bestellen = () => {
                   {/* Paket */}
                   <div className="space-y-4">
                     <h3 className="font-heading text-xl font-semibold">Paket</h3>
-                    <Select required>
+                    <Select name="paket" required>
                       <SelectTrigger>
                         <SelectValue placeholder="Wählen Sie ein Paket aus" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="3kg">3 kg Probierpaket</SelectItem>
-                        <SelectItem value="5kg">5 kg Mischpaket</SelectItem>
-                        <SelectItem value="10kg">10 kg Mischpaket</SelectItem>
-                        <SelectItem value="1/4">1/4 Kalb</SelectItem>
-                        <SelectItem value="1/2">1/2 Kalb</SelectItem>
-                        <SelectItem value="ganz">ganzes Kalb</SelectItem>
+                        <SelectItem value="3 kg Probierpaket">3 kg Probierpaket</SelectItem>
+                        <SelectItem value="5 kg Mischpaket">5 kg Mischpaket</SelectItem>
+                        <SelectItem value="10 kg Mischpaket">10 kg Mischpaket</SelectItem>
+                        <SelectItem value="1/4 Kalb">1/4 Kalb</SelectItem>
+                        <SelectItem value="1/2 Kalb">1/2 Kalb</SelectItem>
+                        <SelectItem value="ganzes Kalb">ganzes Kalb</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -122,17 +154,17 @@ const Bestellen = () => {
                   {/* Vakuumiergrösse */}
                   <div className="space-y-4">
                     <h3 className="font-heading text-xl font-semibold">Vakuumiergrösse</h3>
-                    <RadioGroup defaultValue="normal" className="flex flex-col space-y-2">
+                    <RadioGroup name="vakuum" defaultValue="Normal (3-4 Personen)" className="flex flex-col space-y-2">
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="klein" id="klein" />
+                        <RadioGroupItem value="Klein (für 1-2 Personen)" id="klein" />
                         <Label htmlFor="klein">Klein (für 1-2 Personen)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="normal" id="normal" />
+                        <RadioGroupItem value="Normal (3-4 Personen)" id="normal" />
                         <Label htmlFor="normal">Normal (3-4 Personen)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="gross" id="gross" />
+                        <RadioGroupItem value="Grossverpackung (einzelne Teile in einem Beutel vakuumiert)" id="gross" />
                         <Label htmlFor="gross">Grossverpackung (einzelne Teile in einem Beutel vakuumiert)</Label>
                       </div>
                     </RadioGroup>
@@ -145,6 +177,7 @@ const Bestellen = () => {
                       <Label htmlFor="remark">Ihre Mitteilung an uns</Label>
                       <Textarea
                         id="remark"
+                        name="remark"
                         placeholder="Besondere Wünsche oder Anmerkungen"
                         rows={4}
                       />
