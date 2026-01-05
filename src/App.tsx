@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
+import Bestellen from "./pages/Bestellen";
 import FleischAbHof from "./pages/FleischAbHof";
 import UnsereTiere from "./pages/UnsereTiere";
 import UeberUns from "./pages/UeberUns";
@@ -23,6 +24,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/bestellen" element={<Bestellen />} />
           <Route path="/fleisch-ab-hof" element={<FleischAbHof />} />
           <Route path="/unsere-tiere" element={<UnsereTiere />} />
           <Route path="/ueber-uns" element={<UeberUns />} />

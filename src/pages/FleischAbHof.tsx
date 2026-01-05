@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Calendar, Truck, Package, FileText, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import steakImage from "@/assets/steak.webp";
 import heroImage from "@/assets/hero.avif";
 import bestellformular from "@/assets/docs/Bestellformular.pdf";
@@ -263,14 +264,10 @@ const FleischAbHof = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
-                <a
-                  href="https://forms.office.com/Pages/ResponsePage.aspx?id=lo6hBWM2BEuhbYJj383oPf0H53KPSl5IuXT4ea5p15ZUNThNNUFDMU5ROFYwVjVXNTlIT1RPSEE0WS4u"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="/bestellen">
                   <FileText className="mr-2 h-5 w-5" />
                   Online-Bestellformular
-                </a>
+                </Link>
               </Button>
               <Button variant="hero" size="lg" className="bg-forest text-cream hover:bg-forest/90" asChild>
                 <a

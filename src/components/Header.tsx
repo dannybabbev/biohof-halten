@@ -6,6 +6,7 @@ import logo from "@/assets/logo.avif";
 const navItems = [
   { label: "Start", href: "/" },
   { label: "Fleisch ab Hof", href: "/fleisch-ab-hof" },
+  { label: "Bestellen", href: "/bestellen" },
   { label: "Unsere Tiere", href: "/unsere-tiere" },
   { label: "Impressionen", href: "/impressionen" },
   { label: "Über Uns", href: "/ueber-uns" },
