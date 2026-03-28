@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import steakImage from "@/assets/steak.webp";
 import tiereImage from "@/assets/tiere.webp";
@@ -9,49 +8,34 @@ interface FeatureCardProps {
   description: string;
   image: string;
   href: string;
-  isRoute?: boolean;
   delay?: string;
 }
 
-const FeatureCard = ({ title, description, image, href, isRoute, delay }: FeatureCardProps) => {
-  const content = (
-    <>
-      <div className="aspect-[4/3] overflow-hidden">
+const FeatureCard = ({ title, description, image, href, delay }: FeatureCardProps) => {
+  return (
+    <Link
+      to={href}
+      className={`group block bg-card rounded-sm overflow-hidden hover:shadow-lifted transition-all duration-500 ${delay ?? ""}`}
+    >
+      <div className="aspect-[3/2] overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
         />
       </div>
       <div className="p-6">
-        <h3 className="font-heading text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+        <h3 className="font-heading text-xl font-light tracking-tight text-foreground mb-3 group-hover:text-primary transition-colors duration-500">
           {title}
         </h3>
-        <p className="font-body text-muted-foreground mb-4 leading-relaxed">
+        <p className="font-body text-sm text-muted-foreground mb-5 leading-relaxed font-light">
           {description}
         </p>
-        <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+        <span className="font-body text-xs uppercase tracking-[0.18em] text-earth border-b border-earth/40 hover:border-earth transition-colors duration-300 pb-px">
           Mehr erfahren
-          <ArrowRight className="w-4 h-4" />
         </span>
       </div>
-    </>
-  );
-
-  const className = `group block bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lifted transition-all duration-500 hover:-translate-y-2 ${delay}`;
-
-  if (isRoute) {
-    return (
-      <Link to={href} className={className}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <a href={href} className={className}>
-      {content}
-    </a>
+    </Link>
   );
 };
 
@@ -63,7 +47,6 @@ export const Features = () => {
         "Frisch ab Hof verkaufen wir verschiedene Mischpakete mit feinstem Bio-Kalb- oder Rindfleisch abgepackt und vakuumiert. Auf Vorbestellung auch halbe oder ganze Tiere.",
       image: steakImage,
       href: "/fleisch-ab-hof",
-      isRoute: true,
     },
     {
       title: "Unsere Tiere",
@@ -71,7 +54,6 @@ export const Features = () => {
         "Seit 2003 werden all unsere Tiere rein biologisch gehalten und ernährt. Seit 2025 leben sie als Mutterkuh-Kühe. Dazu Schafe, Hühner, Katzen, Esel und ein Hund.",
       image: tiereImage,
       href: "/unsere-tiere",
-      isRoute: true,
     },
     {
       title: "Über Uns",
@@ -79,18 +61,20 @@ export const Features = () => {
         "Unser Biohof wird seit 2024 vom Jungbauern Lukas Grab geführt und zusammen mit seinem Vater Martin bewirtschaftet. Tradition trifft auf moderne Bio-Landwirtschaft.",
       image: unsImage,
       href: "/ueber-uns",
-      isRoute: true,
     },
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section id="features" className="py-24 bg-background border-t border-border/40">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="w-8 h-px bg-gold mx-auto mb-6" />
+          <h2 className="font-heading text-4xl md:text-5xl font-light tracking-tight text-foreground">
             Herzlich Willkommen
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          <p className="font-body text-sm tracking-widest uppercase text-muted-foreground mt-3">
+            Direkt vom Hof · Seit 2003 zertifiziert biologisch
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/PageHero";
 import grabBertozzi from "@/assets/uber-uns/grab-bertozzi.webp";
 import grabHubli from "@/assets/uber-uns/grab-hubli.avif";
 import bioKnospe from "@/assets/docs/Bio-Knospe_AnerkGrab.pdf";
@@ -12,8 +13,8 @@ const families = [
     names: "Lukas und Raphaela",
     image: grabBertozzi,
     paragraphs: [
-      "Lukas ist gelernter Landwirt EFZ und arbeitet seit 2010 auf unserem Hof. Seit 2016 bewirtschaftet er den Betrieb zusammen mit seinem Vater in der  Generationengemein-schaft.",
-      "Raphaela ist gelernte Sek l-Lehrerin und kümmert sich neben ihrem Beruf um die Hof-Finanzen und die Direktvermarktung .",
+      "Lukas ist gelernter Landwirt EFZ und arbeitet seit 2010 auf unserem Hof. Seit 2016 bewirtschaftet er den Betrieb zusammen mit seinem Vater in der Generationengemeinschaft.",
+      "Raphaela ist gelernte Sek l-Lehrerin und kümmert sich neben ihrem Beruf um die Hof-Finanzen und die Direktvermarktung.",
     ],
   },
   {
@@ -28,14 +29,8 @@ const families = [
 ];
 
 const documents = [
-  {
-    label: "Bio-Knospe",
-    href: bioKnospe,
-  },
-  {
-    label: "Zuchtfamilien-Urkunde",
-    href: zuchtfamilie,
-  },
+  { label: "Bio-Knospe", href: bioKnospe },
+  { label: "Zuchtfamilien-Urkunde", href: zuchtfamilie },
 ];
 
 const UeberUns = () => {
@@ -43,55 +38,46 @@ const UeberUns = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
+      <PageHero
+        title="Über Uns"
+        subtitle="Lernen Sie die Familien kennen, die mit Herzblut den Biohof Halten prägen."
+        kicker="Zwei Generationen · Ein Hof"
+        image={heroImage}
+        alignment="center"
+      />
+
       <main>
-        <section className="relative pt-32 pb-20 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroImage})` }}
-            aria-hidden
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-bark/70 via-bark/55 to-background" />
-
-          <div className="relative container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center space-y-6 text-cream">
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">
-                Über Uns
-              </h1>
-              <p className="font-body text-lg text-cream/90 leading-relaxed">
-                Lernen Sie die Familien kennen, die mit Herzblut den Biohof Halten prägen.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
+        {/* Family Profiles */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto space-y-10">
-              {families.map((family) => (
+            <div className="max-w-5xl mx-auto space-y-0">
+              {families.map((family, index) => (
                 <article
                   key={family.family}
-                  className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-start bg-card rounded-3xl border border-border shadow-soft overflow-hidden"
+                  className={`grid md:grid-cols-[1.2fr_1fr] gap-0 items-stretch overflow-hidden border-t border-gold/20 ${
+                    index === families.length - 1 ? "border-b border-gold/20" : ""
+                  }`}
                 >
-                  <div className="p-8 space-y-4">
-                    <h2 className="font-heading text-xl text-primary uppercase tracking-wide">
+                  <div className="p-8 md:p-12 space-y-4">
+                    <p className="font-body text-xs tracking-[0.18em] uppercase text-gold/80">
                       {family.family}
-                    </h2>
-                    <h3 className="font-heading text-3xl text-foreground">
+                    </p>
+                    <h2 className="font-heading text-2xl font-light tracking-tight text-foreground">
                       {family.names}
-                    </h3>
-                    <div className="font-body text-muted-foreground leading-relaxed space-y-4">
+                    </h2>
+                    <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-4">
                       {family.paragraphs.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
                     </div>
                   </div>
-                  <div className="relative h-full min-h-[260px]">
+                  <div className="relative min-h-[260px]">
                     <img
                       src={family.image}
                       alt={family.family}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bark/25 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bark/15 to-transparent" />
                   </div>
                 </article>
               ))}
@@ -99,34 +85,32 @@ const UeberUns = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-muted/30">
+        {/* Stats & Certificates */}
+        <section className="py-20 border-t border-border/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid gap-6 lg:grid-cols-2">
-              <div className="bg-card border border-border rounded-2xl shadow-soft p-8 space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Hofnummer
-                </p>
-                <p className="font-heading text-5xl text-foreground">10562</p>
-                <p className="font-body text-muted-foreground">
+            <div className="max-w-5xl mx-auto grid gap-8 lg:grid-cols-2">
+              <div className="space-y-3">
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-gold/70">Hofnummer</p>
+                <p className="font-heading text-6xl font-light text-foreground">10562</p>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
                   Unsere offizielle Betriebsnummer für alle Nachweise und Zertifizierungen.
                 </p>
               </div>
 
-              <div className="bg-card border border-border rounded-2xl shadow-soft p-8 space-y-4">
-                <div className="space-y-2">
-                  <h3 className="font-heading text-2xl text-foreground">Zertifikate & Nachweise</h3>
-                  <p className="font-body text-muted-foreground">
-                    Aktuelle Dokumente zum Download.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
+              <div className="space-y-4">
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-gold/70">Zertifikate & Nachweise</p>
+                <h3 className="font-heading text-2xl font-light text-foreground">Aktuelle Dokumente</h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                  Unsere Zertifizierungen zum Download.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-2">
                   {documents.map((doc) => (
                     <a
                       key={doc.label}
                       href={doc.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-lifted transition-all"
+                      className="inline-flex items-center border border-earth/40 text-earth text-xs uppercase tracking-widest px-4 py-2 rounded-sm hover:bg-earth hover:text-cream transition-all duration-500"
                     >
                       {doc.label}
                     </a>
