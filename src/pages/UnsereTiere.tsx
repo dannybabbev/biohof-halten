@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 import tiereHero from "@/assets/tiere.webp";
 import tiereHund from "@/assets/tiere/tiere-hund.avif";
 import tiereKuhe from "@/assets/tiere/tiere-kuhe.avif";
@@ -26,8 +25,8 @@ const animalGroups = [
     title: "Braun-Swiss Kühe und Kälber",
     subtitle: "Preisgekrönte Zuchtfamilien",
     description: [
-      "In unserem Stall befinden sich Kühe und Kälber von zwei preisgekrönten Braun-Swiss- Zuchtfamilien.",
-      "Bei der Aufzucht ist uns aber nicht nur die Abstammung wichtig, sondern auch, dass all unsere Tiere genügend Platz und die Möglichkeit auf Freigang haben.",
+      "In unserem Stall befinden sich Kühe und Kälber von zwei preisgekrönten Braun-Swiss-Zuchtfamilien.",
+      "Bei der Aufzucht ist uns nicht nur die Abstammung wichtig, sondern auch, dass all unsere Tiere genügend Platz und die Möglichkeit auf Freigang haben.",
     ],
     image: tiereKuhe,
   },
@@ -40,7 +39,7 @@ const animalGroups = [
     ],
     image: tiereDexter,
     link: {
-      label: "Erfahren Sie hier mehr über die irischen Dexter",
+      label: "Mehr über die irischen Dexter",
       href: "https://swissdexters.ch/",
     },
   },
@@ -49,7 +48,7 @@ const animalGroups = [
     subtitle: "Heidschnucken für Landschaftspflege",
     description: [
       "Fast zeitgleich mit unserer Hündin sind auch fünf Heidschnucken-Schafe auf dem Hof eingezogen.",
-      "Frida, Helga, Olga, Rosa und Wilma helfen uns nicht nur bei der Landschaftspflege, indem sie die Stauden in den Weiden fressen, sondern versorgen uns auch mit Wolle für wasserdichte Filzhüte oder wärmende Filzhausschuhe.",
+      "Frida, Helga, Olga, Rosa und Wilma helfen uns nicht nur bei der Landschaftspflege, sondern versorgen uns auch mit Wolle für wasserdichte Filzhüte oder wärmende Filzhausschuhe.",
     ],
     image: tiereSchaf,
   },
@@ -58,7 +57,7 @@ const animalGroups = [
     subtitle: "Schweizer & Appenzeller Freilandhühner",
     description: [
       "2020 ging der Hühner-Wunsch der Bauernfrauen in Erfüllung und zwei Schweizer und zwei Appenzeller Hühner zogen ihr neues Zuhause.",
-      "Sie sind wortwörtlich Bio-Freiland-Hühner und dürfen sich auf dem ganzen Hof frei bewegen. Zur Übernachtung steht ihnen ein fahrbarer Hühnerstall zur Verfügung, in welchem sie auch fast täglich je ein Ei legen.",
+      "Sie sind wortwörtlich Bio-Freiland-Hühner und dürfen sich auf dem ganzen Hof frei bewegen. Zur Übernachtung steht ihnen ein fahrbarer Hühnerstall zur Verfügung.",
     ],
     image: tiereHuhner,
   },
@@ -99,49 +98,27 @@ const UnsereTiere = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero */}
-      <section
-        id="tiere"
-        className="relative pt-32 pb-20 overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${tiereHero})` }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-bark/70 via-bark/60 to-background" />
+      <PageHero
+        title="Unsere Tiere"
+        subtitle="Auf dem Biohof Halten leben unsere Tiere in Mutterkuh-Haltung mit viel Freilauf, frischer Bergluft und respektvollem Umgang."
+        kicker="Vielfalt auf 1'000 m.ü.M."
+        image={tiereHero}
+      />
 
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-3xl text-cream">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-cream/20 text-cream text-sm font-semibold mb-4">
-              Vielfalt auf 1'000 m.ü.M.
-            </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Unsere Tiere
-            </h1>
-            <p className="font-body text-lg md:text-xl text-cream/90 leading-relaxed">
-              Auf dem Biohof Halten leben unsere Tiere in Mutterkuh-Haltung mit viel Freilauf,
-              frischer Bergluft und respektvollem Umgang. Seit 2003 führen wir den Hof rein
-              biologisch – Gesundheit, Platz und Ruhe stehen für uns an erster Stelle.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Overview */}
-      <section className="py-16">
+      {/* Carousel Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground font-bold mb-4">
+            <div className="w-8 h-px bg-gold mx-auto mb-6" />
+            <h2 className="font-heading text-3xl font-light tracking-tight text-foreground">
               Lerne unsere Hofbewohner kennen
             </h2>
-            <p className="font-body text-muted-foreground">
-              Vom preisgekrönten Braunvieh bis zu den neugierigen Katzen – jedes Tier hat seinen Platz,
-              seine Aufgabe und bekommt die Zeit, die es braucht.
+            <p className="font-body text-sm text-muted-foreground mt-3 leading-relaxed">
+              Vom preisgekrönten Braunvieh bis zu den neugierigen Katzen — jedes Tier hat seinen Platz.
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card/60 shadow-elegant">
+          <div className="relative overflow-hidden rounded-sm border border-border/50 bg-card">
             <div
               className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -151,24 +128,24 @@ const UnsereTiere = () => {
                   key={animal.title}
                   className="min-w-full grid md:grid-cols-2 bg-card"
                 >
-                  <div className="relative h-64 md:h-full">
+                  <div className="relative h-64 md:h-full min-h-[280px]">
                     <img
                       src={animal.image}
                       alt={animal.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-1000 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bark/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bark/20 to-transparent" />
                   </div>
-                  <div className="p-6 md:p-10 flex flex-col gap-4">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-sm font-semibold text-primary/80 uppercase tracking-wide">
+                  <div className="p-8 md:p-10 flex flex-col gap-4 justify-center">
+                    <div className="flex flex-col gap-1.5">
+                      <p className="font-body text-xs text-gold/80 tracking-[0.2em] uppercase">
                         {animal.subtitle}
                       </p>
-                      <h3 className="font-heading text-2xl md:text-3xl text-foreground">
+                      <h3 className="font-heading text-2xl md:text-3xl font-light tracking-tight text-foreground">
                         {animal.title}
                       </h3>
                     </div>
-                    <div className="font-body text-muted-foreground leading-relaxed space-y-3">
+                    <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-3">
                       {animal.description.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
@@ -178,10 +155,9 @@ const UnsereTiere = () => {
                         href={animal.link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                        className="font-body text-xs uppercase tracking-[0.18em] text-earth border-b border-earth/40 hover:border-earth transition-colors duration-300 pb-px w-fit mt-2"
                       >
                         {animal.link.label}
-                        <ArrowRight className="w-4 h-4" />
                       </a>
                     )}
                   </div>
@@ -189,14 +165,15 @@ const UnsereTiere = () => {
               ))}
             </div>
 
+            {/* Dots */}
             <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2">
               {animalGroups.map((animal, index) => (
                 <button
                   key={animal.title}
-                  className={`h-2.5 rounded-full transition-all ${
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
                     currentSlide === index
-                      ? "w-8 bg-primary"
-                      : "w-2.5 bg-border hover:bg-primary/60"
+                      ? "w-6 bg-gold"
+                      : "w-1.5 bg-border/60 hover:bg-gold/40"
                   }`}
                   onClick={() => goToSlide(index)}
                   aria-label={`Zu ${animal.title}`}
@@ -207,42 +184,30 @@ const UnsereTiere = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-cream/60 via-cream/50 to-forest/10">
+      {/* Terminal CTA */}
+      <section className="py-20 bg-bark text-cream">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="font-heading text-3xl text-bark font-bold">
-              Noch mehr Eindrücke von unseren Tieren
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-8 h-px bg-gold/60 mx-auto mb-8" />
+            <h2 className="font-heading text-3xl font-light tracking-tight mb-4">
+              Noch mehr Eindrücke
             </h2>
-            <p className="font-body text-lg text-bark/80">
-              In der Galerie zeigen wir weitere Momente aus dem Alltag mit Kühen, Dexter-Rindern, Schafen,
-              Hühnern, Katzen, Esel und natürlich Mali.
+            <p className="font-body text-base font-light text-cream/70 mb-10 leading-relaxed">
+              In der Galerie zeigen wir weitere Momente aus dem Alltag mit Kühen, Dexter-Rindern, Schafen, Hühnern, Katzen, Esel und natürlich Mali.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="hero"
-                size="lg"
-                className="bg-forest text-cream hover:bg-forest/90"
-                asChild
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="/impressionen"
+                className="inline-flex items-center justify-center px-8 py-3 font-body text-sm font-medium tracking-[0.1em] uppercase border border-cream/70 text-cream hover:bg-cream/10 transition-all duration-500 rounded-sm"
               >
-                <a
-                  href="/impressionen/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Impressionen ansehen
-                </a>
-              </Button>
-              <Button
-                variant="hero"
-                size="lg"
-                className="bg-bark text-cream hover:bg-bark/90"
-                asChild
+                Impressionen ansehen
+              </a>
+              <a
+                href="/kontakt"
+                className="inline-flex items-center font-body text-sm text-cream/55 tracking-[0.2em] uppercase hover:text-cream/80 transition-colors duration-500"
               >
-                <a href="/kontakt">
-                  Kontakt aufnehmen
-                </a>
-              </Button>
+                Kontakt aufnehmen
+              </a>
             </div>
           </div>
         </div>

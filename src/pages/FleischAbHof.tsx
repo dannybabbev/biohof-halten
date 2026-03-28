@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/PageHero";
 import { Calendar, Truck, Package, FileText, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import steakImage from "@/assets/steak.webp";
@@ -11,113 +11,85 @@ const FleischAbHof = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-bark/70 via-bark/55 to-background" />
 
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-cream">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-6">
-              Fleisch ab Hof
-            </h1>
-            <p className="font-body text-lg md:text-xl text-cream/90 mb-8">
-              Frisches Bio-Fleisch direkt vom Bauernhof
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Fleisch ab Hof"
+        subtitle="Frisches Bio-Fleisch direkt vom Bauernhof"
+        kicker="Biohof Halten · Rothenthurm SZ"
+        image={heroImage}
+      />
 
-      {/* Next Sale Announcement */}
-      <section className="py-8 bg-primary/10 border-y border-primary/20">
+      {/* Announcement Banner */}
+      <section className="py-6 bg-gold/8 border-y border-gold/20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <Calendar className="w-8 h-8 text-primary flex-shrink-0" />
-            <div>
-              <p className="font-heading text-lg md:text-xl text-foreground font-semibold">
-                Nächster Bio-Kalbfleisch-Verkauf (10 mon. Kalb) am 14. November 2025 von 18:00 bis 20:00
-              </p>
-              <p className="font-body text-muted-foreground mt-1">
-                mit Kaffee und Austausch. Bestellungen nehmen wir gerne ab sofort entgegen!
+          <div className="max-w-4xl mx-auto space-y-3">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
+              <Calendar className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-heading text-lg font-light text-foreground">
+                  Nächster Bio-Kalbfleisch-Verkauf (10 mon. Kalb) am 14. November 2025 von 18:00 bis 20:00
+                </p>
+                <p className="font-body text-sm text-muted-foreground mt-1">
+                  mit Kaffee und Austausch · Bestellungen nehmen wir gerne ab sofort entgegen
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 pt-2 border-t border-gold/10">
+              <Truck className="w-4 h-4 text-stone flex-shrink-0" />
+              <p className="font-body text-sm text-muted-foreground">
+                Abholung in diesem Zeitraum oder Lieferung mit Aufpreis von 1.50 CHF pro Kilometer möglich.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Delivery Info */}
-      <section className="py-6 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto flex items-center justify-center gap-3 text-center">
-            <Truck className="w-5 h-5 text-forest flex-shrink-0" />
-            <p className="font-body text-muted-foreground">
-              Abholung in diesem Zeitraum oder Lieferung mit Aufpreis von 1.50 CHF pro Kilometer möglich.
-            </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+
             {/* Left Column - Mischpakete */}
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <h2 className="font-heading text-3xl text-foreground mb-2">
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-gold/70 mb-3">Standardangebot</p>
+                <h2 className="font-heading text-3xl font-light text-foreground mb-2">
                   Bio Kalbfleisch Mischpakete
                 </h2>
-                <p className="font-heading text-2xl text-primary font-semibold">
-                  39.- CHF pro Kilogramm
+                <p className="font-heading text-2xl font-light text-earth">
+                  39.— CHF pro Kilogramm
                 </p>
               </div>
 
-              <div className="bg-card rounded-2xl p-6 border border-border shadow-soft">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1 rounded-full">
-                    Neu
-                  </span>
-                  <h3 className="font-heading text-xl text-foreground">
-                    Mischpakete Gross mit Rabatt
-                  </h3>
-                </div>
-                <p className="font-body text-muted-foreground mb-4">
+              {/* Discount table — left-border block style */}
+              <div className="border-l-2 border-gold/40 pl-6 py-2 space-y-1">
+                <p className="font-body text-xs tracking-[0.15em] uppercase text-gold/60 mb-4">
+                  Mischpakete Gross mit Rabatt
+                </p>
+                <p className="font-body text-sm text-muted-foreground mb-4">
                   Pro 1/4-Kalb gibt es einen Rabatt von 2.5%:
                 </p>
-                <ul className="space-y-2 font-body">
-                  <li className="flex justify-between items-center py-2 border-b border-border/50">
-                    <span className="text-foreground">1/4-Kalb Mischpaket à 39.-/kg</span>
-                    <span className="text-primary font-semibold">– 2.5%</span>
-                  </li>
-                  <li className="flex justify-between items-center py-2 border-b border-border/50">
-                    <span className="text-foreground">1/2-Kalb Mischpaket à 39.-/kg</span>
-                    <span className="text-primary font-semibold">– 5%</span>
-                  </li>
-                  <li className="flex justify-between items-center py-2 border-b border-border/50">
-                    <span className="text-foreground">3/4-Kalb Mischpaket à 39.-/kg</span>
-                    <span className="text-primary font-semibold">– 7.5%</span>
-                  </li>
-                  <li className="flex justify-between items-center py-2">
-                    <span className="text-foreground">1/1-Kalb Mischpaket à 39.-/kg</span>
-                    <span className="text-primary font-semibold">– 10%</span>
-                  </li>
-                </ul>
+                {[
+                  { label: "1/4-Kalb Mischpaket à 39.—/kg", discount: "– 2.5%" },
+                  { label: "1/2-Kalb Mischpaket à 39.—/kg", discount: "– 5%" },
+                  { label: "3/4-Kalb Mischpaket à 39.—/kg", discount: "– 7.5%" },
+                  { label: "1/1-Kalb Mischpaket à 39.—/kg", discount: "– 10%" },
+                ].map((row) => (
+                  <div key={row.label} className="flex justify-between items-center py-2.5 border-b border-border/40 last:border-b-0">
+                    <span className="font-body text-sm text-foreground">{row.label}</span>
+                    <span className="font-heading text-base font-light text-primary">{row.discount}</span>
+                  </div>
+                ))}
               </div>
 
-              <p className="font-body text-muted-foreground">
-                Mischpakete können in <strong className="text-foreground">5kg</strong> (Paketgewicht zwischen 4.5-5.5kg) oder <strong className="text-foreground">10kg</strong> (Paketgewicht zwischen 9.5-10.5kg) Grössen bestellt werden.
+              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                Mischpakete können in <strong className="text-foreground font-medium">5 kg</strong> (4.5–5.5 kg) oder <strong className="text-foreground font-medium">10 kg</strong> (9.5–10.5 kg) Grössen bestellt werden.
               </p>
             </div>
 
             {/* Right Column - Package Contents */}
             <div className="space-y-8">
-              <div className="rounded-2xl overflow-hidden shadow-elegant">
+              <div className="rounded-sm overflow-hidden">
                 <img
                   src={steakImage}
                   alt="Bio Kalbfleisch Mischpaket"
@@ -125,45 +97,31 @@ const FleischAbHof = () => {
                 />
               </div>
 
-              <div className="bg-cream/30 rounded-2xl p-6 border border-earth/20">
-                <div className="flex items-center gap-2 mb-4">
-                  <Package className="w-5 h-5 text-earth" />
-                  <h3 className="font-heading text-xl text-foreground">
-                    Inhalt der Mischpakete:
-                  </h3>
+              <div className="rounded-sm border border-border/50 p-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <Package className="w-4 h-4 text-gold/70" />
+                  <p className="font-body text-xs tracking-[0.15em] uppercase text-gold/70">
+                    Inhalt der Mischpakete
+                  </p>
                 </div>
-                <ul className="space-y-2 font-body text-foreground">
-                  <li className="flex justify-between py-1">
-                    <span>Hackfleisch</span>
-                    <span className="text-muted-foreground">~1.5kg bzw. ~3kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Geschnetzeltes</span>
-                    <span className="text-muted-foreground">~0.5kg bzw. ~1kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Voressen</span>
-                    <span className="text-muted-foreground">~0.5kg bzw. ~1kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Braten</span>
-                    <span className="text-muted-foreground">~0.75kg bzw. ~1.5kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Steak</span>
-                    <span className="text-muted-foreground">~0.5kg bzw. ~1kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Koteletten</span>
-                    <span className="text-muted-foreground">~0.5kg bzw. ~1kg</span>
-                  </li>
-                  <li className="flex justify-between py-1">
-                    <span>Schnitzel</span>
-                    <span className="text-muted-foreground">~0.75kg bzw. ~1.5kg</span>
-                  </li>
-                </ul>
-                <p className="font-body text-sm text-muted-foreground mt-4 pt-4 border-t border-earth/20">
-                  Die Produkte sind in der Standardgrösse 2 Portionen (~300g pro Beutel) abgepackt und vakuumiert.
+                <div className="space-y-0">
+                  {[
+                    { name: "Hackfleisch", amount: "~1.5 kg / ~3 kg" },
+                    { name: "Geschnetzeltes", amount: "~0.5 kg / ~1 kg" },
+                    { name: "Voressen", amount: "~0.5 kg / ~1 kg" },
+                    { name: "Braten", amount: "~0.75 kg / ~1.5 kg" },
+                    { name: "Steak", amount: "~0.5 kg / ~1 kg" },
+                    { name: "Koteletten", amount: "~0.5 kg / ~1 kg" },
+                    { name: "Schnitzel", amount: "~0.75 kg / ~1.5 kg" },
+                  ].map((item) => (
+                    <div key={item.name} className="flex justify-between py-2.5 border-b border-border/40 last:border-b-0">
+                      <span className="font-body text-sm text-foreground">{item.name}</span>
+                      <span className="font-body text-sm text-muted-foreground">{item.amount}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="font-body text-xs text-muted-foreground mt-4 pt-4 border-t border-border/40 leading-relaxed">
+                  Die Produkte sind in der Standardgrösse 2 Portionen (~300 g pro Beutel) abgepackt und vakuumiert.
                 </p>
               </div>
             </div>
@@ -172,33 +130,34 @@ const FleischAbHof = () => {
       </section>
 
       {/* Halbes oder ganzes Tier */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl text-foreground mb-2">
+            <p className="font-body text-xs tracking-[0.2em] uppercase text-gold/70 mb-3">Auf Vorbestellung</p>
+            <h2 className="font-heading text-3xl font-light text-foreground mb-2">
               Halbes oder ganzes Tier
             </h2>
-            <p className="font-heading text-2xl text-primary font-semibold mb-6">
-              34.- CHF oder 32.- CHF pro Kilogramm
+            <p className="font-heading text-2xl font-light text-earth mb-6">
+              34.— CHF oder 32.— CHF pro Kilogramm
             </p>
-            
-            <p className="font-body text-muted-foreground mb-8">
+
+            <p className="font-body text-sm text-muted-foreground mb-10 leading-relaxed max-w-2xl">
               Auf Vorbestellung können für Gastronomie-Betriebe oder Privathaushalte halbe oder ganze Kälber / Rinder zerlegt und in Grosspackungen vakuumiert gekauft werden.
             </p>
 
-            <div className="bg-card rounded-2xl p-6 border border-border shadow-soft mb-8">
-              <h3 className="font-heading text-xl text-foreground mb-4">
-                Im Paket "halbes" bzw. "ganzes Kalb" vorhanden:
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="rounded-sm border border-border/50 p-6">
+              <p className="font-body text-xs tracking-[0.15em] uppercase text-gold/70 mb-5">
+                Im Paket «halbes» bzw. «ganzes Kalb» vorhanden
+              </p>
+              <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
                 {["Filet", "Hackfleisch", "Geschnetzeltes", "Voressen", "Braten", "Steak", "Koteletten", "Haxen", "Schnitzel"].map((item) => (
-                  <span key={item} className="bg-cream/50 text-foreground px-4 py-2 rounded-lg text-center font-body">
+                  <span key={item} className="border border-border/60 rounded-sm text-xs tracking-wide uppercase text-foreground px-3 py-2 text-center font-body">
                     {item}
                   </span>
                 ))}
               </div>
-              <p className="font-body text-sm text-muted-foreground mt-4">
-                Je nach Körpergewicht variiert die Paketgrösse zwischen 45-50kg bzw. 90-100kg.
+              <p className="font-body text-xs text-muted-foreground mt-5 pt-4 border-t border-border/40">
+                Je nach Körpergewicht variiert die Paketgrösse zwischen 45–50 kg bzw. 90–100 kg.
               </p>
             </div>
           </div>
@@ -206,88 +165,77 @@ const FleischAbHof = () => {
       </section>
 
       {/* Spezialitäten */}
-      <section className="py-16">
+      <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl text-foreground mb-4">
+            <p className="font-body text-xs tracking-[0.2em] uppercase text-gold/70 mb-3">Je nach Vorrat</p>
+            <h2 className="font-heading text-3xl font-light text-foreground mb-4">
               Spezialitäten
             </h2>
-            <p className="font-body text-muted-foreground mb-8">
-              Je nach Vorrat können bei Abholung der Bestellung weitere Spezialitäten dazugekauft werden:
+            <p className="font-body text-sm text-muted-foreground mb-8 leading-relaxed">
+              Bei Abholung der Bestellung können weitere Spezialitäten dazugekauft werden.
             </p>
 
-            <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-soft">
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                {[
-                  { name: "Filet", price: "11.00 CHF" },
-                  { name: "Hackfleisch", price: "3.50 CHF" },
-                  { name: "Geschnetzeltes", price: "6.90 CHF" },
-                  { name: "Voressen", price: "4.00 CHF" },
-                  { name: "Braten", price: "7.30 CHF" },
-                  { name: "Steak", price: "8.50 CHF" },
-                  { name: "Koteletten", price: "6.50 CHF" },
-                  { name: "Haxen", price: "4.20 CHF" },
-                  { name: "Schnitzel", price: "8.90 CHF" },
-                ].map((item, index) => (
-                  <div
-                    key={item.name}
-                    className={`flex justify-between items-center p-4 ${
-                      index % 2 === 0 ? "bg-card" : "bg-muted/30"
-                    } border-b border-border/50 last:border-b-0`}
-                  >
-                    <span className="font-body text-foreground">{item.name}</span>
-                    <span className="font-heading text-primary font-semibold">
-                      {item.price} <span className="text-xs text-muted-foreground font-normal">pro 100g</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <div className="rounded-sm border border-border/50 overflow-hidden">
+              {[
+                { name: "Filet", price: "11.00 CHF" },
+                { name: "Hackfleisch", price: "3.50 CHF" },
+                { name: "Geschnetzeltes", price: "6.90 CHF" },
+                { name: "Voressen", price: "4.00 CHF" },
+                { name: "Braten", price: "7.30 CHF" },
+                { name: "Steak", price: "8.50 CHF" },
+                { name: "Koteletten", price: "6.50 CHF" },
+                { name: "Haxen", price: "4.20 CHF" },
+                { name: "Schnitzel", price: "8.90 CHF" },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="flex justify-between items-center px-6 py-3.5 border-b border-border/40 last:border-b-0"
+                >
+                  <span className="font-body text-sm text-foreground">{item.name}</span>
+                  <span className="font-heading text-base font-light text-primary">
+                    {item.price} <span className="font-body text-xs text-muted-foreground">pro 100 g</span>
+                  </span>
+                </div>
+              ))}
             </div>
 
-            <p className="font-body text-sm text-muted-foreground mt-4">
-              Bitte geben Sie Ihren Spezialitätenwunsch bei der Bestellung unter Bemerkung an. Wir werden versuchen, diese zu berücksichtigen.
+            <p className="font-body text-xs text-muted-foreground mt-4 leading-relaxed">
+              Bitte geben Sie Ihren Spezialitätenwunsch bei der Bestellung unter Bemerkung an. Wir versuchen, diese zu berücksichtigen.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Order Section */}
-      <section className="py-16 bg-gradient-to-b from-forest/10 to-earth/10">
+      {/* Terminal CTA */}
+      <section className="py-20 bg-bark text-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-heading text-3xl text-foreground mb-4">
+            <div className="w-8 h-px bg-gold/60 mx-auto mb-8" />
+            <h2 className="font-heading text-3xl font-light tracking-tight mb-4">
               Jetzt bestellen
             </h2>
-            <p className="font-body text-muted-foreground mb-8">
+            <p className="font-body text-base font-light text-cream/70 mb-10 leading-relaxed">
               Bestellen Sie ganz einfach online oder laden Sie das PDF-Bestellformular herunter.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/bestellen">
-                  <FileText className="mr-2 h-5 w-5" />
-                  Online-Bestellformular
-                </Link>
-              </Button>
-              <Button variant="hero" size="lg" className="bg-forest text-cream hover:bg-forest/90" asChild>
-                <a
-                  href={bestellformular}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  PDF herunterladen
-                </a>
-              </Button>
-            </div>
-
-            <div className="mt-8 flex items-center justify-center gap-2 text-muted-foreground">
-              <Mail className="w-4 h-4" />
-              <span className="font-body text-sm">
-                Oder senden Sie das ausgefüllte Formular an:{" "}
-                <a href="mailto:biohof.halten@gmail.com" className="text-primary hover:underline">
-                  biohof.halten@gmail.com
-                </a>
-              </span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/bestellen"
+                className="inline-flex items-center gap-2 px-8 py-3 font-body text-sm font-medium tracking-[0.1em] uppercase border border-cream/70 text-cream hover:bg-cream/10 transition-all duration-500 rounded-sm"
+              >
+                <FileText className="w-4 h-4" />
+                Online-Bestellformular
+              </Link>
+              <a
+                href={bestellformular}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-body text-sm text-cream/55 tracking-[0.15em] uppercase hover:text-cream/80 transition-colors duration-500"
+              >
+                <Mail className="w-4 h-4" />
+                PDF herunterladen
+              </a>
             </div>
           </div>
         </div>
